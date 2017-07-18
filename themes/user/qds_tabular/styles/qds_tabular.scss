@@ -1,0 +1,289 @@
+
+// ee2 colors
+$pink: #e11842;
+$dgray: #27343C;
+
+// ee3 colors
+$blue: #1f80bd;
+$mblue: 186291;
+
+@mixin borderRadius($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-o-border-radius: $radius;
+	-khtml-border-radius: $radius;
+	-ms-border-radius: $radius;
+	border-radius: $radius;
+}
+
+@mixin boxShadow($declaration) {
+	-webkit-box-shadow: $declaration;
+	-moz-box-shadow: $declaration;
+	-o-box-shadow: $declaration;
+	-khtml-box-shadow: $declaration;
+	-ms-box-shadow: $declaration;
+	box-shadow: $declaration;
+}
+
+
+table.ft-qds_tabular {
+  position: relative;
+  margin: 0 !important;
+  min-width: 100%;
+  border: 1px solid #b6c0c2;
+  border-radius: 3px;
+  -webkit-user-select: none;
+
+  th,
+  td {
+    vertical-align: top;
+    display: table-cell;
+    text-align: left;
+    @include borderRadius(0 !important);
+  }
+
+  th.row-count {
+    padding: 2px !important;
+  }
+
+  .delete-col,
+  .delete-row {
+    opacity: 0;
+    position: absolute;
+    margin: -5px 0 0 -5px;
+    text-decoration: none !important;
+    font-size: 22px;
+    line-height: 0;
+    cursor: pointer;
+
+    &, &:hover {
+      color: $pink !important;
+    }
+  }
+
+  thead tr:first-child th:first-child,
+  tbody th {
+    width: 22px;
+    min-width: 22px;
+  }
+
+  thead {
+    background: none;
+
+    td, th {
+      padding: 1px 10px;
+      border: none !important;
+      border-right: 1px solid #ccc !important;
+      border-right-color: rgba(0,0,0,0.1) !important;
+      text-shadow: 0 1px #fff;
+    }
+
+    td {
+      font-size: 0.9em;
+      background: #e5e5e5;
+      background: rgba(0,0,0,0.06);
+    }
+
+    th {
+      color: inherit;
+      line-height: 13px;
+      background: #fff;
+    	background: -webkit-gradient(linear, 0 0, 0 100%, from(transparent), to(rgba(0,0,0,0.06)));
+    	background: -moz-linear-gradient(top, transparent, rgba(0,0,0,0.06));
+
+      border-top: 1px solid #fff !important;
+      padding-top: 5px;
+      font-weight: bold;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #bbb !important;
+
+      &.col-count:hover {
+        .count {
+          opacity: 0;
+        }
+
+        a {
+          opacity: 1;
+        }
+      }
+    }
+
+    // tr {
+    //   &:first-child th {
+    //     border-top: 1px solid #fff !important; padding-top: 5px; font-weight: bold;
+    //   }
+    //   &:last-child th {
+    //     padding-bottom: 6px; border-bottom: 1px solid #bbb !important;
+    //   }
+    // }
+  }
+
+  tbody {
+    td, th {
+      border: solid #e3e3e3;
+      border-width: 1px 1px 0 0;
+    }
+
+    td {
+      padding: 0;
+      background: #fff;
+    }
+
+    th {
+      border-color: #c8cbce;
+      text-align: center;
+      vertical-align: middle;
+      color: #5f6c74;
+      text-shadow: 0 1px #fff;
+      background: #e2e2e2;
+      background: rgba(0,0,0,0.06);
+      cursor: move;
+      cursor: -webkit-grab;
+      cursor: -moz-grab;
+    }
+
+    .ui-sortable-helper {
+      display: table;
+    }
+
+    tr:not(.only-child) th:hover {
+      .row-count {
+        opacity: 0;
+      }
+
+      a {
+        opacity: 1;
+      }
+    }
+  }
+
+  textarea {
+    display: block;
+    border: none;
+    padding: 10px;
+    margin: 0;
+    @include boxShadow(none !important);
+
+    &:focus {
+      background: #fff;
+    }
+  }
+
+
+
+}
+
+.ft-qds_tabular-container {
+
+  label {
+    display: block;
+  }
+
+  .btn-container {
+    padding-top: 12px;
+  }
+
+  .settings-container {
+    padding-top: 10px;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 8px 15px;
+    background: $dgray;
+    cursor: pointer;
+    border-radius: 2px;
+    border: none;
+    text-shadow: 1px 1px 0 darken($dgray, 10%);
+    color: #fff;
+
+    &:hover {
+      text-decoration: none;
+      background: $pink;
+      color: #fff;
+      text-shadow: 1px 1px 0 darken($pink, 10%);
+    }
+
+    span {
+      display: inline-block;
+      position: relative;
+      bottom: -2px;
+      margin-right: 5px;
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 0;
+    }
+
+    &.js-disabled {
+      opacity: .3;
+      cursor: default;
+
+      &:hover {
+        background: $dgray;
+        text-shadow: 1px 1px 0 darken($dgray, 10%);
+        color: #fff;
+      }
+    }
+  }
+  &[data-ee_version="3"] {
+    .btn {
+      background: $blue;
+      text-shadow: none;
+
+      &:hover {
+        background: $mblue;
+        text-shadow: none;
+      }
+
+      &.js-disabled {
+        &:hover {
+          background: $blue;
+          text-shadow: none;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+// table.matrix tbody.matrix td.matrix-disabled { background: #eee; -webkit-user-select: none; -moz-user-select: none; }
+//
+// table.matrix tbody.matrix td.matrix label { font-size: 1em; line-height: 160%; }
+//
+// table.matrix tbody.matrix tr.matrix-norows td { padding: 8px 10px; text-align: center; cursor: pointer; }
+// .matrix-ee2 table.matrix tbody.matrix tr.matrix-norows td a { color: #e11842; }
+// table.matrix tbody.matrix tr.matrix-norows td:hover a { text-decoration: underline; }
+//
+//
+// /* focussed borders */
+// table.matrix tbody.matrix td.matrix-focussed { border-width: 2px 2px 1px 1px; padding: 6px 9px; }
+// table.matrix tbody.matrix td.matrix-firstcell.matrix-focussed { border-left-width: 2px; padding-left: 8px; }
+// table.matrix tbody.matrix td.matrix-last.matrix-focussed { border-right-width: 2px !important; padding-right: 8px; }
+// table.matrix tbody.matrix tr.matrix-last td.matrix-focussed { border-bottom-width: 2px; padding-bottom: 5px; }
+//
+// /* menu button */
+// table.matrix tbody.matrix th.matrix div { position: relative; z-index: 100 !important; height: 13px; line-height: 13px; }
+// table.matrix tbody.matrix th.matrix div a { display: none; position: absolute; z-index: 100 !important; top: -1px; right: -15px; width: 15px; height: 15px; background: url(../images/menu_btn.png) no-repeat; cursor: pointer; }
+//
+// /* menu */
+// /*-- table styles --*/
+// /* prevent double borders without resorting to border-collapse */
+// table.matrix thead.matrix th.matrix-last,
+// table.matrix thead.matrix td.matrix-last,
+// table.matrix tbody.matrix td.matrix-last { border-right-width: 0 !important; }
+//
+// /* keep the corner cells' BGs from bleeding over the rounded corners */
+// table.matrix thead.matrix tr.matrix-first .matrix-first, table.matrix-helper th.matrix      { border-top-left-radius: 2px; -webkit-border-top-left-radius: 2px; -moz-border-radius-topleft: 3px; }
+// table.matrix thead.matrix tr.matrix-first .matrix-last,  table.matrix-helper td.matrix-last { border-top-right-radius: 2px; -webkit-border-top-right-radius: 2px; -moz-border-radius-topright: 3px; }
+// table.matrix tbody.matrix tr.matrix-last  .matrix-first, table.matrix-helper th.matrix      { border-bottom-left-radius: 2px; -webkit-border-bottom-left-radius: 2px; -moz-border-radius-bottomleft: 3px; }
+// table.matrix tbody.matrix tr.matrix-last  .matrix-last,  table.matrix-helper td.matrix-last { border-bottom-right-radius: 2px; -webkit-border-bottom-right-radius: 2px; -moz-border-radius-bottomright: 3px; }

@@ -5,14 +5,14 @@
 * QDS Tabular
 *
 * @package        qds_tabular
-* @author         Q Digital Studio, Mike Wenger
+* @author         Q Digital Studio
 * @link           http://qdigitalstudio.com
 * @copyright      Copyright (c) 2016
 *
 **/
 
 $info	= array(
-	'author'         => 'Q Digital Studio',
+	'author'         => 'QDS',
 	'author_url'     => 'https://www.qdigitalstudio.com',
 	'docs_url'       => FALSE,
 	'name'           => 'QDS Tabular Data',
