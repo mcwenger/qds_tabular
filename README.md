@@ -1,9 +1,18 @@
-# Example Usage
+#QDS Tabular Add-On
+##Table Fieldtype for EE3 (Beta)
+
+This is a fieldtype that can used as a stand-alone field, or within Grid or Bloqs
+setups. It is intended to be used for data tables and does not support the integration
+of other third-party fieldtypes in the way that something like Matrix would – only
+text values and labels can be used.
 
 Everything including and between {table:rows} and {/table:rows} is standardized,
 there is no prefixing or variable changes that need to occur.
 
-{table}
+Example markup:
+
+```
+{table_field_name}
 <table cellspacing="0" cellpadding="0" border="0" class="table-data">
   {table:rows}
   {if table:row_count == 1 && table:first_row_heading}
@@ -27,4 +36,5 @@ there is no prefixing or variable changes that need to occur.
   {/if}
   {/table:rows}
 </table>
-{/table}
+{/table_field_name}
+```
