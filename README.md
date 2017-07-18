@@ -8,6 +8,8 @@ text values and labels can be used.
 Everything including and between {table:rows} and {/table:rows} is standardized,
 there is no prefixing or variable changes that need to occur.
 
+![Screen Shot](/screengrab.png?raw=true "QDS Tabular for EE3")
+
 Example markup:
 
 ```
