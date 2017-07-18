@@ -1,5 +1,4 @@
-#QDS Tabular Add-On
-##Table Fieldtype for EE3 (Beta)
+# Table Fieldtype for EE3 (QDS Tabular, Beta)
 
 This is a fieldtype that can used as a stand-alone field, or within Grid or Bloqs
 setups. It is intended to be used for data tables and does not support the integration
