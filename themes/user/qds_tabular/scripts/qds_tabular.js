@@ -10,14 +10,14 @@ var QdsTabular;
    */
   QdsTabular = function(field_name, field_id) {
 
-  	// keep a record of this object
+    // keep a record of this object
     // QdsTabular.instances = [];
-  	// QdsTabular.instances.push(this);
+    // QdsTabular.instances.push(this);
 
-  	var _ = this;
-  	_.id = field_id;
+    var _ = this;
+    _.id = field_id;
     _.name = field_name;
-  	_.rows = [];
+    _.rows = [];
     _.total_rows = 0;
     _.total_cols = 0;
     _.max_rows = 100;
@@ -67,12 +67,12 @@ var QdsTabular;
             row = {'index': index, 'obj': $(this)};
         _.rows.push(row);
       });
-  		_.total_rows = _.rows.length;
-  	};
+      _.total_rows = _.rows.length;
+    };
 
     _.initCols = function(){
-  		_.total_cols = $('tr:first td', $tbody).length;
-  	};
+      _.total_cols = $('tr:first td', $tbody).length;
+    };
 
     _.reIndex = function() {
       $('th.col-count', $thead).each(function(i) {
@@ -170,7 +170,7 @@ var QdsTabular;
 
     _.bindEvents = function() {
       console.log('bound', field_name);
-      
+
       $add_row.on('click', _.addRow);
       $add_col.on('click', _.addCol);
       $table.on('click', '.delete-row', _.removeRow);
